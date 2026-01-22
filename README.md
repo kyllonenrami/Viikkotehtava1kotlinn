@@ -1,0 +1,2 @@
+Käyttäjä pystyy lisäämään taskeja, järjestää päivämäärän mukaan, muuttaa true/false sekä nähdä valmiit sekä keskeneräiset taskit.
+HomeScreen tehty, mutta ei toiminnassa. Sen saa toimimaan, kun vaihtaa AppTask():in HomeScereen():iin.
