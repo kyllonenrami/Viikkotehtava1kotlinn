@@ -1,10 +1,10 @@
 Viikkotehtävä 2 Kotlin
 
-Miten Compose tilanhallinta toimii-
+Miten Compose tilanhallinta toimii?
 
-Tilanhallinta -Compose tilanhallinta perustuu käyttöliittymämalliin, missä käyttöliittymä kertoo sovelluksen nykyistä tilaa. Compose seuraa tilaa ja silloin kun tilan arvo muuttuu, compose "uudelleenrakentaa" automaattisesti ne käyttöliittymän osat, jotka käyttävät kyseistä tilaa.
+Compose tilanhallinta perustuu käyttöliittymämalliin, missä käyttöliittymä kertoo sovelluksen nykyistä tilaa. Compose seuraa tilaa ja silloin kun tilan arvo muuttuu, compose "uudelleenrakentaa" automaattisesti ne käyttöliittymän osat, jotka käyttävät kyseistä tilaa.
 
-Miksi ViewModel on parempi kuin pelkkä remember-
+Miksi ViewModel on parempi kuin pelkkä remember?
 
 ViewModel erottaa sovelluslogiikan käyttöliittymästä, koodi on selkeämpää ja helpommin testattavissa ja esim. remeberiä käyttäessä, tila häviää joissain tilanteissa, kuten  kääntäessä näyttöä.
 
