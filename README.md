@@ -1,12 +1,12 @@
-Viikkotehtävä 2 Kotlin
+Viikkotehtävä 3 Kotlin
 
-Miten Compose tilanhallinta toimii?
+Selitä MVVM, miksi se on hyödyllinen Compose-sovelluksissa.
 
-Compose tilanhallinta perustuu käyttöliittymämalliin, missä käyttöliittymä kertoo sovelluksen nykyistä tilaa. Compose seuraa tilaa ja silloin kun tilan arvo muuttuu, compose "uudelleenrakentaa" automaattisesti ne käyttöliittymän osat, jotka käyttävät kyseistä tilaa.
+Compose-sovelluksissa MVVM on hyödyllinen, koska käyttöliittymä perustuu tilaan. ViewModel hallitsee sovelluksen tilaa ja Compose-näkymä reagoi automaattisesti sen muutoksiin. Tämä tekee koodista selkeämpää, helpommin testattavaa ja paremmin ylläpidettävää sekä auttaa säilyttämään datan esimerkiksi näytön käännössä.
 
-Miksi ViewModel on parempi kuin pelkkä remember?
+Kerro miten StateFlow toimii.
 
-ViewModel erottaa sovelluslogiikan käyttöliittymästä, koodi on selkeämpää ja helpommin testattavissa ja esim. remeberiä käyttäessä, tila häviää joissain tilanteissa, kuten  kääntäessä näyttöä.
+StateFlow on Kotlin Coroutines -kirjaston osa, jota käytetään tilan hallintaan. Se on hot flow, eli se on aina aktiivinen ja sillä on aina nykyinen arvo. Kun arvo muuttuu, kaikki sitä keräävät (collect) saavat uuden arvon automaattisesti.
 
 Viikkotehtävä 1 kotlin
 
