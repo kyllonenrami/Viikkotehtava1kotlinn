@@ -1,4 +1,5 @@
 package com.example.viikkotehtava1.ui2
+import androidx.compose.foundation.clickable
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -14,37 +15,76 @@ import com.example.viikkotehtava1.domain.Task
 fun TaskRow(
     task: Task,
     onToggleDone: (Int) -> Unit,
-    onRemove: (Int) -> Unit
+    onRemove: (Int) -> Unit,
+    onClick: (Task) -> Unit
 ) {
-    Row(
+    Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .padding(8.dp)
+            .clickable {
+                println("CLICKED: ${task.title}")
+                onClick(task)
+            }
     ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
 
-        Checkbox(
-            checked = task.done,
-            onCheckedChange = { onToggleDone(task.id) }
-        )
+            Checkbox(
+                checked = task.done,
+                onCheckedChange = { onToggleDone(task.id) }
+            )
 
-        Spacer(modifier = Modifier.width(8.dp))
+            Spacer(modifier = Modifier.width(8.dp))
 
-        Column(modifier = Modifier.weight(1f)) {
-            Text(task.title, style = MaterialTheme.typography.bodyLarge)
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(task.title, style = MaterialTheme.typography.bodyLarge)
 
-            if (task.description.isNotBlank()) {
-                Text(task.description, style = MaterialTheme.typography.bodySmall)
+                if (task.description.isNotBlank()) {
+                    Text(task.description, style = MaterialTheme.typography.bodySmall)
+                }
+
+                Text(
+                    text = "Deadline: ${task.dueDate.ifBlank { "ei asetettu" }} | Prioriteetti: ${task.priority}",
+                    style = MaterialTheme.typography.labelSmall
+                )
             }
 
-            Text(
-                text = "Deadline: ${task.dueDate.ifBlank { "ei asetettu" }} | Prioriteetti: ${task.priority}",
-                style = MaterialTheme.typography.labelSmall
-            )
-        }
-
-        IconButton(onClick = { onRemove(task.id) }) {
-            Icon(Icons.Default.Delete, contentDescription = "Poista")
+            IconButton(onClick = { onRemove(task.id) }) {
+                Icon(Icons.Default.Delete, contentDescription = "Poista")
+            }
         }
     }
 }
+/*@Composable
+fun TaskRow(
+    task: Task,
+    onToggleDone: (Int) -> Unit,
+    onRemove: (Int) -> Unit,
+    onClick: (Task) -> Unit
+) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .clickable {
+                println("CLICKED: ${task.title}")
+                onClick(task)
+            }
+
+    ) {
+        Row(
+            modifier = Modifier.padding(8.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(task.title)
+            Checkbox(
+                checked = task.done,
+                onCheckedChange = { onToggleDone(task.id) }
+            )*/

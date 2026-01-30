@@ -1,4 +1,4 @@
-package com.example.viikkotehtava1.ui
+/*package com.example.viikkotehtava1.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.padding
@@ -20,10 +20,15 @@ import com.example.viikkotehtava1.ui2.TaskRow
 
 @Composable
 fun TaskListScreen(
-    taskViewModel: TaskViewModel = viewModel()
+    taskViewModel: TaskViewModel
+
+
 ) {
     val tasks by taskViewModel.tasks.collectAsStateWithLifecycle()
     var newTitle by remember { mutableStateOf("") }
+    var newDescription by remember { mutableStateOf("") }
+    var newDueDate by remember { mutableStateOf("") }
+
 
     Column(
         modifier = Modifier
@@ -38,25 +43,56 @@ fun TaskListScreen(
         TaskFilterRow(
             onAll = { taskViewModel.setFilter(TaskFilter.ALL) },
             onDone = { taskViewModel.setFilter(TaskFilter.DONE) },
-            onTodo = { taskViewModel.setFilter(TaskFilter.TODO) }
+            onTodo = { taskViewModel.setFilter(TaskFilter.TODO) },
+            onOrderByDueDate = { taskViewModel.toggleOrderByDueDate() }
+
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        Row {
+        Column {
             TextField(
                 value = newTitle,
                 onValueChange = { newTitle = it },
-                modifier = Modifier.weight(1f),
-                label = { Text("Uusi tehtävä") }
+                label = { Text("Otsikko") },
+                modifier = Modifier.fillMaxWidth()
             )
-            Spacer(modifier = Modifier.width(8.dp))
-            Button(onClick = {
-                if (newTitle.isNotBlank()) {
-                    taskViewModel.addTask(newTitle)
-                    newTitle = ""
-                }
-            }) {
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextField(
+                value = newDescription,
+                onValueChange = { newDescription = it },
+                label = { Text("Kuvaus") },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextField(
+                value = newDueDate,
+                onValueChange = { newDueDate = it },
+                label = { Text("Eräpäivä (YYYY-MM-DD)") },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Button(
+                onClick = {
+                    if (newTitle.isNotBlank()) {
+                        taskViewModel.addTask(
+                            title = newTitle,
+                            description = newDescription,
+                            dueDate = newDueDate
+                        )
+                        newTitle = ""
+                        newDescription = ""
+                        newDueDate = ""
+                    }
+                },
+                modifier = Modifier.align(Alignment.End)
+            ) {
                 Text("Lisää")
             }
         }
@@ -78,7 +114,8 @@ fun TaskListScreen(
 fun TaskFilterRow(
     onAll: () -> Unit,
     onDone: () -> Unit,
-    onTodo: () -> Unit
+    onTodo: () -> Unit,
+    onOrderByDueDate: () -> Unit
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -87,6 +124,10 @@ fun TaskFilterRow(
         Button(onClick = onAll) { Text("Kaikki") }
         Button(onClick = onDone) { Text("Valmiit") }
         Button(onClick = onTodo) { Text("Tekemättömät") }
+
+        Button(onClick = onOrderByDueDate) { Text("Eräpäivä") }
     }
 }
 
+
+*/
