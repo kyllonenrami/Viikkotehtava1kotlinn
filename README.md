@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Viikkotehtävä 2 Kotlin
 
 Miten Compose tilanhallinta toimii?
@@ -25,3 +26,14 @@ Asennus ja ajaminen
 1.Kloonaa projekti
 2.Avaa Android Studiossa
 3.Aja sovellus Android laitteessa tai emulaattorissa
+=======
+Viikkotehtava 1 kotlin
+
+Android-sovellus, jossa voi:
+
+Lisätä uusia tehtäviä Merkitä tehtäviä tehdyksi tai tekemättömäksi Suodattaa tehtäviä tilan mukaan (kaikki / tekemättömät / tehdyt) Lajitella tehtävät päivämäärän mukaan Esimerkkitehtävät mockTasks Funktiot tehtävien käsittelyyn: lisääminen, tila-muutos, suodatus ja lajittelu Käyttöliittymä Composella, listanäkymä ja napit toimintoihin
+
+Asennus ja ajaminen
+
+1.Kloonaa projekti 2.Avaa Android Studiossa 3.Aja sovellus Android laitteessa tai emulaattorissa
+>>>>>>> 24e40dcf65133dcf92a0ed24bddd3da2db01ba6f
