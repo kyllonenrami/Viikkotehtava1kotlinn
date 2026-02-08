@@ -62,29 +62,3 @@ fun TaskRow(
         }
     }
 }
-/*@Composable
-fun TaskRow(
-    task: Task,
-    onToggleDone: (Int) -> Unit,
-    onRemove: (Int) -> Unit,
-    onClick: (Task) -> Unit
-) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
-            .clickable {
-                println("CLICKED: ${task.title}")
-                onClick(task)
-            }
-
-    ) {
-        Row(
-            modifier = Modifier.padding(8.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(task.title)
-            Checkbox(
-                checked = task.done,
-                onCheckedChange = { onToggleDone(task.id) }
-            )*/

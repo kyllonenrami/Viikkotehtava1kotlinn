@@ -1,5 +1,5 @@
 package com.example.viikkotehtava1.domain
-
+/*
 
 enum class TaskFilter {
     ALL,
@@ -12,3 +12,4 @@ enum class TaskOrder {
     DUE_DATE_ASC,
     DUE_DATE_DESC
 }
+ */
